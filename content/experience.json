@@ -1,0 +1,47 @@
+[
+  {
+    "id": "light-and-wonder",
+    "role": "Software Engineer",
+    "company": "Light & Wonder",
+    "location": "Bengaluru, India",
+    "start": "Aug 2022",
+    "end": "Present",
+    "summary": "Building regulated-gaming platforms end to end, from service design to production support.",
+    "bullets": [
+      "Designed and shipped Spring Boot microservices for regulated gaming workloads, defining service boundaries, API contracts and data ownership for each domain.",
+      "Built event-driven flows on Apache Kafka and RabbitMQ, and real-time state synchronisation over WebSocket/STOMP so connected clients stay consistent without polling.",
+      "Cut read latency and database load with Redis caching and JPA/Hibernate tuning: fetch strategy, batch sizing, projections and query plan review.",
+      "Developed Angular and React single-page applications against those services, using lazy loading and code splitting to keep initial load lean.",
+      "Automated build, test and deployment with CI/CD pipelines, containerising services with Docker and running them on Kubernetes.",
+      "Owned features end to end: HLD/LLD, implementation, code review, secure coding against the OWASP Top 10, testing and production support."
+    ],
+    "stack": [
+      "Java 17",
+      "Spring Boot",
+      "Kafka",
+      "RabbitMQ",
+      "Redis",
+      "PostgreSQL",
+      "Angular",
+      "React",
+      "Docker",
+      "Kubernetes",
+      "AWS"
+    ]
+  },
+  {
+    "id": "mindtree",
+    "role": "Software Engineer Intern",
+    "company": "Mindtree (LTIMindtree)",
+    "location": "Bengaluru, India",
+    "start": "Jan 2022",
+    "end": "Jun 2022",
+    "summary": "Backend internship focused on REST APIs, persistence and tests.",
+    "bullets": [
+      "Built REST APIs with Spring Boot against agreed request/response contracts.",
+      "Implemented persistence layers with Spring Data JPA, including entity mapping and repository queries.",
+      "Wrote unit tests to cover service and repository logic ahead of integration."
+    ],
+    "stack": ["Java", "Spring Boot", "Spring Data JPA", "JUnit", "MySQL"]
+  }
+]

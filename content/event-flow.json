@@ -1,0 +1,174 @@
+{
+  "nodes": [
+    {
+      "id": "client",
+      "label": "Clients",
+      "sub": "Angular / React",
+      "x": 62,
+      "y": 110,
+      "kind": "client",
+      "desc": "Angular and React single-page apps. Connected clients receive state over WebSocket/STOMP instead of polling."
+    },
+    {
+      "id": "gateway",
+      "label": "API Gateway",
+      "sub": "REST · JWT",
+      "x": 202,
+      "y": 110,
+      "kind": "edge",
+      "desc": "Entry point for client requests. JWT sessions and role-based access control are enforced at the service boundary."
+    },
+    {
+      "id": "producer",
+      "label": "Producer",
+      "sub": "Spring Boot",
+      "x": 342,
+      "y": 110,
+      "kind": "service",
+      "desc": "A Spring Boot service that owns its domain and publishes events instead of calling downstream services directly."
+    },
+    {
+      "id": "kafka",
+      "label": "Kafka",
+      "sub": "event topic",
+      "x": 482,
+      "y": 110,
+      "kind": "broker",
+      "desc": "The event backbone for high-volume transaction traffic. RabbitMQ is used alongside it where queue semantics fit."
+    },
+    {
+      "id": "consumer",
+      "label": "Consumer",
+      "sub": "idempotent",
+      "x": 632,
+      "y": 110,
+      "kind": "service",
+      "desc": "Idempotent consumer: handling the same message twice has the same effect. Failures get bounded retry, then dead-lettering."
+    },
+    {
+      "id": "redis",
+      "label": "Redis",
+      "sub": "cache",
+      "x": 780,
+      "y": 110,
+      "kind": "data",
+      "desc": "Caching layer that cuts read latency and database load."
+    },
+    {
+      "id": "postgres",
+      "label": "PostgreSQL",
+      "sub": "system of record",
+      "x": 780,
+      "y": 260,
+      "kind": "data",
+      "desc": "System of record, with JPA/Hibernate tuned for fetch strategy, batch sizing and projections."
+    },
+    {
+      "id": "dlq",
+      "label": "Dead-letter",
+      "sub": "queue",
+      "x": 482,
+      "y": 260,
+      "kind": "broker",
+      "desc": "Dead-letter handling, so no message is silently lost and failed events can be inspected."
+    }
+  ],
+  "edges": [
+    ["client", "gateway"],
+    ["gateway", "producer"],
+    ["producer", "kafka"],
+    ["kafka", "consumer"],
+    ["consumer", "redis"],
+    ["consumer", "postgres"],
+    ["kafka", "dlq"]
+  ],
+  "flows": {
+    "success": {
+      "label": "Happy path",
+      "steps": [
+        {
+          "text": "A client sends a request through the API gateway.",
+          "route": [
+            [62, 110],
+            [202, 110]
+          ]
+        },
+        {
+          "text": "The producer service validates it and publishes an event to Kafka.",
+          "route": [
+            [202, 110],
+            [342, 110],
+            [482, 110]
+          ]
+        },
+        {
+          "text": "An idempotent consumer picks the event up.",
+          "route": [
+            [482, 110],
+            [632, 110]
+          ]
+        },
+        {
+          "text": "State is written to Redis and PostgreSQL.",
+          "route": [
+            [632, 110],
+            [780, 110]
+          ],
+          "branch": [
+            [632, 110],
+            [780, 260]
+          ]
+        },
+        {
+          "text": "The new state is pushed back to connected clients over WebSocket/STOMP.",
+          "route": [
+            [632, 110],
+            [632, 34],
+            [62, 34],
+            [62, 70]
+          ],
+          "push": true
+        }
+      ]
+    },
+    "failure": {
+      "label": "Failure path",
+      "steps": [
+        {
+          "text": "A client request becomes an event on Kafka.",
+          "route": [
+            [62, 110],
+            [202, 110],
+            [342, 110],
+            [482, 110]
+          ]
+        },
+        {
+          "text": "The consumer fails to process it.",
+          "route": [
+            [482, 110],
+            [632, 110]
+          ],
+          "fail": true
+        },
+        {
+          "text": "It is retried a bounded number of times.",
+          "route": [
+            [632, 110],
+            [482, 110],
+            [632, 110]
+          ],
+          "retry": true
+        },
+        {
+          "text": "Retries exhausted: the message goes to the dead-letter queue, never silently lost.",
+          "route": [
+            [482, 110],
+            [482, 260]
+          ],
+          "dead": true
+        }
+      ]
+    }
+  }
+}

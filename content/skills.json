@@ -1,0 +1,102 @@
+[
+  {
+    "group": "Languages",
+    "icon": "code",
+    "items": [
+      { "name": "Java 17 / 21", "icon": "siOpenjdk" },
+      { "name": "TypeScript", "icon": "siTypescript" },
+      { "name": "JavaScript", "icon": "siJavascript" },
+      { "name": "SQL", "icon": "database" },
+      { "name": "HTML5", "icon": "siHtml5" },
+      { "name": "CSS3", "icon": "siCss" }
+    ]
+  },
+  {
+    "group": "Backend",
+    "icon": "server",
+    "items": [
+      { "name": "Spring Boot", "icon": "siSpringboot" },
+      { "name": "Spring MVC", "icon": "siSpring" },
+      { "name": "Spring Security", "icon": "siSpringsecurity" },
+      { "name": "Spring Data JPA", "icon": "siSpring" },
+      { "name": "Hibernate", "icon": "siHibernate" },
+      { "name": "Spring Cloud", "icon": "siSpring" },
+      { "name": "REST", "icon": "network" },
+      { "name": "gRPC", "icon": "network" },
+      { "name": "GraphQL", "icon": "siGraphql" },
+      { "name": "Swagger / OpenAPI", "icon": "siSwagger" },
+      { "name": "Multithreading", "icon": "cpu" },
+      { "name": "Streams API", "icon": "workflow" },
+      { "name": "Maven", "icon": "siApachemaven" },
+      { "name": "Gradle", "icon": "siGradle" }
+    ]
+  },
+  {
+    "group": "Architecture",
+    "icon": "boxes",
+    "items": [
+      { "name": "Microservices", "icon": "boxes" },
+      { "name": "Event-Driven Architecture", "icon": "zap" },
+      { "name": "Distributed Systems", "icon": "network" },
+      { "name": "Domain-Driven Design", "icon": "layers" },
+      { "name": "CQRS", "icon": "split" },
+      { "name": "SOLID", "icon": "layers" },
+      { "name": "System Design (HLD / LLD)", "icon": "workflow" }
+    ]
+  },
+  {
+    "group": "Messaging & Data",
+    "icon": "database",
+    "items": [
+      { "name": "Apache Kafka", "icon": "siApachekafka" },
+      { "name": "RabbitMQ", "icon": "siRabbitmq" },
+      { "name": "WebSocket / STOMP", "icon": "radio" },
+      { "name": "PostgreSQL", "icon": "siPostgresql" },
+      { "name": "MySQL", "icon": "siMysql" },
+      { "name": "Redis", "icon": "siRedis" },
+      { "name": "Query Optimisation", "icon": "gauge" }
+    ]
+  },
+  {
+    "group": "Frontend",
+    "icon": "layout",
+    "items": [
+      { "name": "Angular", "icon": "siAngular" },
+      { "name": "React", "icon": "siReact" },
+      { "name": "RxJS", "icon": "siReactivex" },
+      { "name": "NgRx / Redux", "icon": "siRedux" },
+      { "name": "Lazy Loading", "icon": "zap" },
+      { "name": "Code Splitting", "icon": "split" }
+    ]
+  },
+  {
+    "group": "Cloud & DevOps",
+    "icon": "cloud",
+    "items": [
+      { "name": "AWS EC2", "icon": "cloud" },
+      { "name": "AWS S3", "icon": "cloud" },
+      { "name": "AWS Lambda", "icon": "cloud" },
+      { "name": "API Gateway", "icon": "cloud" },
+      { "name": "CloudWatch", "icon": "cloud" },
+      { "name": "Docker", "icon": "siDocker" },
+      { "name": "Kubernetes", "icon": "siKubernetes" },
+      { "name": "Terraform", "icon": "siTerraform" },
+      { "name": "Jenkins", "icon": "siJenkins" },
+      { "name": "GitHub Actions", "icon": "siGithubactions" }
+    ]
+  },
+  {
+    "group": "Security & QA",
+    "icon": "shield",
+    "items": [
+      { "name": "OAuth 2.0", "icon": "lock" },
+      { "name": "JWT", "icon": "siJsonwebtokens" },
+      { "name": "RBAC", "icon": "lock" },
+      { "name": "OWASP Top 10", "icon": "shield" },
+      { "name": "JUnit 5", "icon": "siJunit5" },
+      { "name": "Mockito", "icon": "check" },
+      { "name": "Jest", "icon": "siJest" },
+      { "name": "Playwright", "icon": "check" }
+    ]
+  }
+]

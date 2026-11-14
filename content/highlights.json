@@ -1,0 +1,47 @@
+[
+  {
+    "id": "experience",
+    "label": "Years of experience",
+    "value": 4.7,
+    "decimals": 1,
+    "suffix": "",
+    "animate": true,
+    "note": "Backend, platform and frontend delivery"
+  },
+  {
+    "id": "patent",
+    "label": "Patent co-inventor",
+    "value": 2025,
+    "decimals": 0,
+    "suffix": "",
+    "animate": false,
+    "note": "Granted 2025 · reusable enterprise platform framework"
+  },
+  {
+    "id": "aws",
+    "label": "AWS certifications",
+    "value": 2,
+    "decimals": 0,
+    "suffix": "",
+    "animate": true,
+    "note": "Developer Associate · DevOps Engineer Professional"
+  },
+  {
+    "id": "gpa",
+    "label": "GPA",
+    "value": 8.67,
+    "decimals": 2,
+    "suffix": "/10",
+    "animate": true,
+    "note": "B.E., Electronics and Communication Engineering"
+  },
+  {
+    "id": "hits",
+    "label": "Greatest Hits of the Month",
+    "value": 2,
+    "decimals": 0,
+    "suffix": "×",
+    "animate": true,
+    "note": "Awarded twice"
+  }
+]

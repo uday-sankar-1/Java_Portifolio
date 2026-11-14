@@ -1,0 +1,71 @@
+[
+  {
+    "slug": "dmx-platform",
+    "title": "DMX Platform",
+    "subtitle": "Reusable Enterprise Platform Framework",
+    "badge": "Patent granted, 2025",
+    "summary": "A reusable framework of shared libraries and service templates, adopted by several product teams, with reliable event-driven pipelines at its core.",
+    "problem": "Product teams were re-creating the same boilerplate in every service, while high-volume transaction traffic needed event delivery that never silently drops a message and logic that stays testable.",
+    "approach": [
+      "Packaged shared libraries and service templates that several product teams adopted, removing duplicated boilerplate per service.",
+      "Built event-driven pipelines for high-volume transaction traffic using idempotent consumers, bounded retry and dead-letter handling.",
+      "Applied Clean Architecture boundaries so domain logic stays independent of transport and persistence."
+    ],
+    "architecture": "Producer services publish events to Kafka (RabbitMQ is also part of the stack). Idempotent consumers process each message, update Redis and PostgreSQL, and push state to connected clients. Failures are retried a bounded number of times and then routed to a dead-letter queue. Domain logic sits behind Clean Architecture boundaries, independent of transport and persistence.",
+    "diagram": "event-flow",
+    "stack": [
+      "Java 17",
+      "Spring Boot",
+      "Kafka",
+      "RabbitMQ",
+      "Redis",
+      "PostgreSQL",
+      "AWS",
+      "Kubernetes",
+      "Clean Architecture"
+    ],
+    "outcome": [
+      "Patent granted in 2025, with me as co-inventor.",
+      "Adopted by multiple product teams, removing duplicated boilerplate per service.",
+      "No message is silently lost: failures are retried, then dead-lettered.",
+      "Services are testable without infrastructure."
+    ]
+  },
+  {
+    "slug": "iview-platform",
+    "title": "iVIEW Platform",
+    "subtitle": "Customer-Facing Transactional Web Platform",
+    "badge": "Multi-client deployment",
+    "summary": "A real-time transactional web platform secured with Spring Security, JWT and RBAC, with per-client behaviour driven by configuration.",
+    "problem": "Several clients share one platform, so each client and each role must see only its own surface, users expect server-side changes to show up without refreshing, and per-client differences must not fork the codebase.",
+    "approach": [
+      "Built real-time transactional features that reflect server-side state changes as they happen, rather than on refresh.",
+      "Secured the platform with Spring Security, JWT sessions and role-based access control.",
+      "Drove per-client behaviour from configurable modules instead of branching the codebase."
+    ],
+    "architecture": "Angular and React clients talk to Spring Boot services. Spring Security validates JWT sessions and enforces role-based access control at the service boundary, so every client and role resolves to its own surface. Configuration modules select per-client behaviour at runtime. State lives in PostgreSQL, and CI/CD builds and ships the platform.",
+    "diagram": "layers",
+    "layers": [
+      { "name": "Clients", "detail": "Angular · React single-page apps" },
+      { "name": "Security", "detail": "Spring Security · JWT sessions · RBAC" },
+      { "name": "Services", "detail": "Spring Boot · config-driven client modules" },
+      { "name": "Data", "detail": "PostgreSQL" },
+      { "name": "Delivery", "detail": "CI/CD" }
+    ],
+    "stack": [
+      "Angular",
+      "React",
+      "Spring Boot",
+      "Spring Security",
+      "PostgreSQL",
+      "JWT",
+      "RBAC",
+      "CI/CD"
+    ],
+    "outcome": [
+      "Each client and each role sees only its own surface.",
+      "Per-client behaviour comes from configuration, not code branches.",
+      "Server-side state changes appear as they happen, not on refresh."
+    ]
+  }
+]

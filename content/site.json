@@ -1,0 +1,42 @@
+{
+  "name": "Uday Sankar Obbu",
+  "role": "Java Full Stack Developer",
+  "headline": "Java Full Stack Developer building scalable, event-driven platforms.",
+  "description": "Java Full Stack Developer with 4.7 years of experience in microservices, distributed systems and cloud, building high-availability platforms for regulated gaming.",
+  "status": "Immediate joiner, serving notice period",
+  "location": "Bengaluru, India",
+  "email": "udaysankarobbu@gmail.com",
+  "phoneEncoded": "KzkxIDYzMDMzOTY1MTE=",
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/udaysankarobbu",
+    "github": "",
+    "booking": ""
+  },
+  "resume": {
+    "href": "/Uday-Sankar-Obbu-Resume.pdf",
+    "fileName": "Uday-Sankar-Obbu-Resume.pdf"
+  },
+  "about": [
+    "I have spent 4.7 years building high-availability platforms for regulated gaming: Java 17 / Spring Boot microservices, Kafka and RabbitMQ event-driven systems, and Angular / React frontends running on AWS with Docker and Kubernetes.",
+    "I own features end to end: HLD/LLD, implementation, code review, OWASP-aware secure coding, testing, CI/CD and production support. I am a co-inventor on a patent (granted 2025) for a reusable enterprise platform framework adopted across multiple product teams."
+  ],
+  "aboutFacts": [
+    {
+      "label": "Based in",
+      "value": "Bengaluru, India"
+    },
+    {
+      "label": "Domain",
+      "value": "Regulated gaming platforms"
+    },
+    {
+      "label": "Focus",
+      "value": "Microservices, event-driven systems, cloud"
+    },
+    {
+      "label": "Availability",
+      "value": "Immediate joiner, serving notice period"
+    }
+  ],
+  "photo": ""
+}
